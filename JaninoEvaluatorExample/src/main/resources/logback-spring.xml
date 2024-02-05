@@ -8,6 +8,24 @@
             <OnMismatch>NEUTRAL</OnMismatch>
             <OnMatch>DENY</OnMatch>
         </filter>
+
+
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <matcher>
+                    <Name>odd</Name>
+                    <!-- filter out odd numbered statements -->
+<!--                    <regex>statement [123456789]</regex>-->
+                    <regex>formattedMessage [A-Za-z]</regex>
+                </matcher>
+
+                <expression>odd.matches(formattedMessage)</expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+
+
         <encoder>
             <pattern>
                 %-4relative [%thread] %-5level %logger -%kvp -%msg%n
