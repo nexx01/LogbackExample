@@ -16,7 +16,7 @@
                     <Name>odd</Name>
                     <!-- filter out odd numbered statements -->
 <!--                    <regex>statement [123456789]</regex>-->
-                    <regex>formattedMessage [A-Za-z]</regex>
+                    <regex>E[a-z]*[.]*</regex>
                 </matcher>
 
                 <expression>odd.matches(formattedMessage)</expression>
